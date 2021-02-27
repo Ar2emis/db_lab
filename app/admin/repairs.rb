@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 DESCRIPTION_INDEX_LENGTH = 177
+MOST_BROKEN_MACHINE_TYPES_AMOUNT = 3
 
 ActiveAdmin.register Repair do
   permit_params :machine_type_code, :repair_type_code, :started_at, :description
@@ -15,7 +16,8 @@ ActiveAdmin.register Repair do
   end
 
   sidebar :most_frequently_broken_machine_types, only: :index, priority: 0 do
-    render partial: 'statistic', locals: { machine_types: MachineType::MostBrokenMachineTypes.call.limit(3) }
+    machine_types = MachineType::MostBrokenMachineTypes.call.limit(MOST_BROKEN_MACHINE_TYPES_AMOUNT)
+    render partial: 'statistic', locals: { machine_types: machine_types }
   end
 
   index do
