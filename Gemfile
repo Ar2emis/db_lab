@@ -28,6 +28,8 @@ gem 'activeadmin'
 gem 'country_select'
 gem 'devise'
 gem 'ffaker'
+gem 'haml-rails'
+gem 'prawn'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

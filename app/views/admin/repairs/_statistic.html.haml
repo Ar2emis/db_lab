@@ -1,0 +1,12 @@
+%table
+  %thead
+    %tr
+      %th= t('repairs.machine_type.code')
+      %th= t('repairs.machine_type.brand')
+      %th= t('repairs.machine_type.repaired_times')
+  %tbody
+    - machine_types.each do |machine_type|
+      %tr
+        %th= machine_type.code
+        %th= machine_type.brand.name
+        %th= machine_type.repairs_count
